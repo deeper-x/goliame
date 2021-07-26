@@ -35,8 +35,7 @@ func (m *Msg) Send() (bool, error) {
 	// send email with real body
 	if m.Body != nil {
 		uri := fmt.Sprintf("%s:%s", m.Host, m.Port)
-		body := fmt.Sprintf("Subject: CERT MONITOR\n%v \n\n", m.Body)
-		err := smtp.SendMail(uri, auth, m.From, m.To, []byte(body))
+		err := smtp.SendMail(uri, auth, m.From, m.To, m.Body)
 
 		if err != nil {
 			return false, err
