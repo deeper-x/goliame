@@ -37,9 +37,9 @@ func (m *Msg) Send() (bool, error) {
 }
 
 // ReadFile fetch file content in order to build email body
-func (m *Msg) ReadFile(filename string) error {
+func (m *Msg) ReadFile(fpath string) error {
 	// build file content object
-	fcontent, err := ioutil.ReadFile(filename)
+	fcontent, err := ioutil.ReadFile(fpath)
 	if err != nil {
 		return err
 	}
