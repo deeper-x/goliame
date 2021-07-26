@@ -4,7 +4,6 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/smtp"
 )
 
@@ -27,7 +26,6 @@ func (m *Msg) Send() (bool, error) {
 		err := smtp.SendMail(uri, auth, m.From, []string{m.To}, []byte(m.Body))
 
 		if err != nil {
-			log.Println(err)
 			return false, err
 		}
 		return true, nil
